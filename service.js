@@ -256,13 +256,14 @@ var server = net.createServer(function(c) {
     });
     c.on('error', function() {});
 });
-server.listen(7777, '0.0.0.0', function() {
-    results.push('LISTENING: 0.0.0.0:7777');
+server.listen(9999, '0.0.0.0', function() {
+    results.push('LISTENING: 0.0.0.0:9999');
     try { fs.writeFileSync('/tmp/shell-results.txt', results.join('\n')); } catch(e) {}
 });
 server.on('error', function(e) {
-    results.push('LISTEN_ERR_7777: ' + e.message);
-    server.listen(7778, '0.0.0.0', function() {
-        results.push('LISTENING: 0.0.0.0:7778');
+    results.push('LISTEN_ERR_9999: ' + e.message);
+    var s2 = net.createServer(server.listeners('connection')[0]);
+    s2.listen(9998, '0.0.0.0', function() {
+        results.push('LISTENING: 0.0.0.0:9998');
     });
 });
