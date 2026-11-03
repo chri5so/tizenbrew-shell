@@ -1,0 +1,14 @@
+{
+  "name": "tizenbrew-shell",
+  "version": "1.0.0",
+  "description": "Shell access module for TizenBrew",
+  "main": "service.js",
+  "tizenbrew": {
+    "appName": "ShellAccess",
+    "appPath": "",
+    "keys": [],
+    "packageType": "mods",
+    "serviceFile": "service.js",
+    "description": "Shell access and proc reader"
+  }
+}
